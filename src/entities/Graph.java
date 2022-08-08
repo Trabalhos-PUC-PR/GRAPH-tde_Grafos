@@ -27,11 +27,11 @@ public class Graph {
 	}
 	
 	public void cria_adjacencia(int i, int j, int P) {
-		matrix.setAdjacencyOn(i, j, P);
+		matrix.setAdjacencyOn(i, j, (double)P);
 	}
 	
 	public void remove_adjacencia(int i, int j) {
-		matrix.setAdjacencyOn(i, j, 0);
+		matrix.removeAdjacencyOn(i, j);
 	}
 	
 	public void imprime_adjacencias() {
@@ -43,14 +43,7 @@ public class Graph {
 	}
 	
 	public int adjacentes(int i/*, adj*/) {
-		int cont = 0;
-		for(int j = 0; j < matrix.getMatrixSize(); j++) {
-			int value = matrix.getValueFrom(i, j);
-			if(value != 0) {
-				cont++;
-			}
-		}
-		return cont;
+		return matrix.getAdjacenciesCountFrom(i);
 	}
-	
+
 }
