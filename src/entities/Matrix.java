@@ -14,7 +14,7 @@ public class Matrix {
 	public Matrix() {
 		this.matrix = new ArrayList<>();
 		this.matrix.add(new ArrayList<>());
-		this.matrix.get(0).add(0.0);
+		this.matrix.get(0).add(noAdjacencyValue);
 		this.length = getMatrixSize();
 	}
 
@@ -24,7 +24,7 @@ public class Matrix {
 	public Matrix(int size) {
 		this.matrix = new ArrayList<>();
 		this.matrix.add(new ArrayList<>());
-		this.matrix.get(0).add(0.0);
+		this.matrix.get(0).add(noAdjacencyValue);
 		this.length = getMatrixSize();
 		upSize(size - 1);
 	}
@@ -113,10 +113,8 @@ public class Matrix {
 	 * @param value The value of the adjacency
 	 */
 	public void setAdjacencyOn(int x, int y, Double value) {
-		if (x != y) {
-			matrix.get(y).set(x, value);
-			matrix.get(x).set(y, value);
-		}
+		matrix.get(y).set(x, value);
+		matrix.get(x).set(y, value);
 	}
 
 	/**
@@ -133,7 +131,7 @@ public class Matrix {
 		for (int i = 0; i < length; i++) {
 			matrix.get(i).add(noAdjacencyValue);
 		}
-		matrix.get(length - 1).set(length - 1, 0.0);
+		matrix.get(length - 1).set(length - 1, noAdjacencyValue);
 	}
 
 	/**
@@ -153,7 +151,7 @@ public class Matrix {
 	public void resetAdjacency() {
 		for (int i = 0; i < getMatrixSize(); i++) {
 			for (int j = 0; j < getMatrixSize(); j++) {
-				if (matrix.get(i).get(j) != 0.0) {
+				if (matrix.get(i).get(j) != noAdjacencyValue) {
 					matrix.get(i).set(j, noAdjacencyValue);
 				}
 			}
@@ -162,6 +160,7 @@ public class Matrix {
 
 	/**
 	 * removes adjacency from specified coordinates
+	 * 
 	 * @param x | X Axis
 	 * @param y | Y Axis
 	 */
@@ -181,19 +180,20 @@ public class Matrix {
 
 	/**
 	 * updates the old value of noAdjacencyValue with the new one
+	 * 
 	 * @param newValue new value of noAdjacencyValue
 	 */
 	private void updateNoAdjacencyValue(Double newValue) {
 		Double oldValue = this.noAdjacencyValue;
-		for(int i = 0; i < getMatrixSize(); i++) {
-			for(int j = 0; j < getMatrixSize(); j++) {
-				if(matrix.get(j).get(i) == oldValue) {
+		for (int i = 0; i < getMatrixSize(); i++) {
+			for (int j = 0; j < getMatrixSize(); j++) {
+				if (matrix.get(j).get(i) == oldValue) {
 					matrix.get(j).set(i, newValue);
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * prints matrix
 	 */
