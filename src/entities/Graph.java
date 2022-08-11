@@ -49,12 +49,11 @@ public class Graph {
 	public int adjacentes(int i, ArrayList<Double> adj) {
 		int totalAdjacencies = matrix.getAdjacenciesCountFrom(i);
 		int matrixLength = matrix.getMatrixSize();
-//		int count = 0;
 		
 		for(int index = 0; index < matrixLength; index++) {
 			if(matrix.getAdjacencyOf(i, index) != matrix.getNoAdjacencyValue()) {
-				adj.add((double)index);
-//				count++;
+//				adj.add(matrix.getAdjacencyOf(i, index));
+				adj.add((double) index);
 			}
 		}
 		return totalAdjacencies;

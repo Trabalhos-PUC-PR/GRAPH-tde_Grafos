@@ -1,3 +1,10 @@
+/*
+ * André Luiz Kovalski
+ * Bruno Leite Franco
+ * Pedro Amadeu
+ * Theo César
+ */
+
 package app;
 
 import java.util.ArrayList;
@@ -20,7 +27,7 @@ public class Main {
 		System.out.printf("Total adjacencies for %d: %d\n", 4,grafo.adjacentes(4, adjacentes));
 		
 		for(Double d: adjacentes) {
-			System.out.println(d);
+			System.out.printf("%.0f\n",d);
 		}
 	}
 
