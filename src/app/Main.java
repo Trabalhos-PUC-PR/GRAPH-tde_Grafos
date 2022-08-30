@@ -19,7 +19,7 @@ public class Main {
 		grafo.cria_adjacencia(4, 3, 2);
 		grafo.cria_adjacencia(4, 2, 9);
 		grafo.cria_adjacencia(4, 4, 3);
-		grafo.cria_adjacencia(0, 4, 5);
+		grafo.cria_adjacencia(0, 4, 70);
 		grafo.cria_adjacencia(2, 2, 4);
 		grafo.imprime_adjacencias();
 		

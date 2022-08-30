@@ -198,20 +198,23 @@ public class Matrix {
 	 * prints matrix
 	 */
 	public void print() {
+		int blankSize = 2;
+		char blank = '+';
 		System.out.printf("length: %d\n", length);
-		String numberTable = "| + | ";
+		String numberTable = String.format("| %"+blankSize+"s | ", blank);
 		for (int i = 0; i < getMatrixSize(); i++) {
-			numberTable += i + " | ";
+			numberTable += String.format("%"+blankSize+"d | ", i);
 		}
 		System.out.println(numberTable);
 		for (int i = 0; i < matrix.size(); i++) {
-			System.out.printf("| %d | ", i);
+			System.out.printf("| %"+blankSize+"d | ", i);
 			for (int j = 0; j < matrix.get(i).size(); j++) {
 				Double value = matrix.get(i).get(j);
 				if (value == noAdjacencyValue) {
-					System.out.printf("x | ");
+					char nothing = 'x';
+					System.out.printf("%"+blankSize+"c | ", nothing);
 				} else {
-					System.out.printf("%.0f | ", value);
+					System.out.printf("%"+blankSize+".0f | ", value);
 				}
 			}
 			System.out.println();
